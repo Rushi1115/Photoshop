@@ -1,0 +1,31 @@
+{%extends "base_cate.html"%} {% load static %} {%block cate%}
+<h3 style="font-family: var(--font-secondary);">General:- {{count}} Images</h3>{%endblock cate%} {%block slide%}
+<style>
+    .portfolio-details-slider img {
+        width: 100%;
+        height: 600px;
+    }
+    
+    img,
+    svg {
+        vertical-align: middle;
+    }
+</style>
+<!-- slides start -->
+<div class="position-relative w-75 " style="margin-left: 15%; align-items: center;  ">
+    <div class="slides-1 portfolio-details-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+            {% for j in rand|slice:"0:"%}
+            <div class="swiper-slide">
+                <img src="/media/{{j.image}}" alt="">
+            </div>
+            {%endfor%}
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+</div>
+{%endblock slide%}

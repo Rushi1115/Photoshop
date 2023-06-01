@@ -1,0 +1,50 @@
+{%extends "base.html"%} {%block body%}
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    {%block cate%} {%endblock cate%}
+                    <p>"Photography is a way of feeling, of touching, of loving. What you have caught on film is captured forever... it remembers little things, long after you have forgotten everything."</p>
+
+                    <a class="cta-btn" href="/contact">Available for hire</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    {% load static %}
+    <!-- ======= Gallery Section ======= -->
+    {%block slide%} {%endblock slide%}
+    <!-- slides end  -->
+    <section id="gallery" class="gallery">
+        <div class="container-fluid">
+
+            <div class="row gy-4 justify-content-center">
+
+                {% for j in images|slice:"0:"%}
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100">
+                        <img src=" /media/{{j.image}} " class="img-fluid" alt="loading" style="width: 350px; height:250px">
+                        <div class="gallery-links d-flex align-items-center justify-content-center">
+                            <a href="/media/{{j.image}}" title="Gallery-{{forloop.counter}}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                            <a href="/contact/" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Gallery Section -->
+
+</main>
+<!-- End #main -->
+{%endblock body%}
